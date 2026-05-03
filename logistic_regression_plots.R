@@ -20,12 +20,12 @@ files <- list(
 )
 
 titles <- c(
-  "Model 1: sex + maternal age",
-  "Model 2: weight category + birth weight relative to GA",
-  "Model 3: GD/preeclampsia + SPB & PPROM + latency period",
-  "Model 4: maternal age + number of pregnancies",
-  "Model 5: previous pregnancy + maternal ancestry",
-  "Model 6: GA + weight + sex"
+  "Logistic regression model 1: Sex + maternal age",
+  "Logistic regression model 2: Weight category + birth weight relative to gestational age",
+  "Logistic regression model 3: Gestational diabetes/preeclampsia + SPB/PPROM + latency",
+  "Logistic regression model 4: Mother's age + number of pregnancies",
+  "Logistic regression model 5: Previous pregnancy complications + maternal ancestry",
+  "Logistic regression model 6: Gestational age + birth weight + sex"
 )
 names(titles) <- names(files)
 
@@ -254,7 +254,7 @@ make_manhattan_plot <- function(file, model_name, n_label = 8) {
     theme_classic(base_size = 13) +
     theme(
       plot.title = element_text(
-        size = 15,
+        size = 11,
         face = "bold",
         hjust = 0.5,
         margin = margin(b = 10)
@@ -365,7 +365,7 @@ make_qq_plot <- function(file, model_name) {
     theme_classic(base_size = 13) +
     theme(
       plot.title = element_text(
-        size = 15,
+        size = 11,
         face = "bold",
         hjust = 0.5,
         margin = margin(b = 10)
@@ -410,10 +410,10 @@ for (nm in names(files)) {
 
 if (length(manhattan_plots) > 0) {
   combined_manhattan <- wrap_plots(manhattan_plots, ncol = 2) +
-    plot_annotation(title = "Manhattan plots across all logistic regression models") &
+    #plot_annotation(title = "Manhattan plots across all logistic regression models") &
     theme(
       plot.title = element_text(
-        size = 16,
+        size = 11,
         face = "bold",
         hjust = 0.5,
         margin = margin(b = 10)
@@ -436,10 +436,10 @@ if (length(manhattan_plots) > 0) {
 
 if (length(qq_plots) > 0) {
   combined_qq <- wrap_plots(qq_plots, ncol = 2) +
-    plot_annotation(title = "QQ plots across all logistic regression models") &
+    #plot_annotation(title = "QQ plots across all logistic regression models") &
     theme(
       plot.title = element_text(
-        size = 16,
+        size = 11,
         face = "bold",
         hjust = 0.5,
         margin = margin(b = 10)
